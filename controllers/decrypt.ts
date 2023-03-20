@@ -27,6 +27,12 @@ export default async function decrypt(req: Request, res: Response) {
         message: "Invalid decryption payload",
       });
     }
+
+    if (text.selfDestruct) {
+      await prisma.text.delete({
+        where: { sharing_code: code },
+      });
+    }
     return res.status(200).json({
       text: cryptr.decrypt(text.text),
     });
