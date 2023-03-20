@@ -4,6 +4,9 @@ import bodyParser from "body-parser";
 import get from "./controllers/get";
 import create from "./controllers/create";
 import decrypt from "./controllers/decrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
