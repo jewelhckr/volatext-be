@@ -19,6 +19,7 @@ model Text {
   expiry DateTime
   isProtected Boolean @default(false)
   password String
+  selfDestruct Boolean @default(false)
   }
 
 
