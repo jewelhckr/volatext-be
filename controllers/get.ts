@@ -37,6 +37,12 @@ export default async function get(req: Request, res: Response) {
     });
   }
 
+  if (text.selfDestruct) {
+    await prisma.text.delete({
+      where: { sharing_code: code },
+    });
+  }
+
   return res.status(200).json({
     text: cryptr.decrypt(text.text),
     sharing_code: text.sharing_code,
