@@ -33,6 +33,7 @@ export default async function create(req: Request, res: Response) {
         expiry,
         password: cryptr.encrypt(password),
         isProtected,
+        selfDestruct,
       },
     });
 
