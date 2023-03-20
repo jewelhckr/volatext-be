@@ -6,7 +6,7 @@ import cryptr from "../utils/cryptr";
 
 export default async function create(req: Request, res: Response) {
   try {
-    const { text, length, password, isProtected } = req.body;
+    const { text, length, password, isProtected, selfDestruct } = req.body;
 
     if (!text) {
       return res.status(400).json({ message: "Text is required" });
