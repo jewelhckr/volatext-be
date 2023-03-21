@@ -3,10 +3,12 @@ import { Request, Response } from "express";
 import prisma from "../prisma/prisma";
 
 const count_view = async (req: Request, res: Response) => {
+  const { code } = req.query;
+
   prisma.viewsCount.create({
     data: {
       created: dayjs().toDate(),
-      sharing_code: req.query.code as string,
+      sharing_code: code as string,
     },
   });
 };
