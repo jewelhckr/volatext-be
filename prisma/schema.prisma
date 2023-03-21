@@ -20,6 +20,7 @@ model Text {
   isProtected Boolean @default(false)
   password String
   selfDestruct Boolean @default(false)
+  viewsCount Boolean @default(false)
   }
 
 
