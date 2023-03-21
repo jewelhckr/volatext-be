@@ -24,11 +24,12 @@ export default async function create(req: Request, res: Response) {
     const created = dayjs().toDate();
 
     const encryptedString = cryptr.encrypt(text);
+    const sharing_code = randomstring.generate(4).toLowerCase();
 
     const Text = await prisma.text.create({
       data: {
         text: encryptedString,
-        sharing_code: randomstring.generate(4).toLowerCase(),
+        sharing_code,
         created,
         expiry,
         password: cryptr.encrypt(password),
