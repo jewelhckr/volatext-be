@@ -21,6 +21,7 @@ model Text {
   password String
   selfDestruct Boolean @default(false)
   viewsCount Boolean @default(false)
+  accessToken String
   }
 
 
