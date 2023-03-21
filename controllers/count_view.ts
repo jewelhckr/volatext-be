@@ -10,3 +10,5 @@ const count_view = async (req: Request, res: Response) => {
     },
   });
 };
+
+export default count_view;
