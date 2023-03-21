@@ -38,7 +38,7 @@ export default async function create(req: Request, res: Response) {
         isProtected,
         selfDestruct,
         viewsCount,
-        accessToken,
+        accessToken: viewsCount ? accessToken : "",
       },
     });
 
