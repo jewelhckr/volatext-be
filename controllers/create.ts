@@ -40,6 +40,15 @@ export default async function create(req: Request, res: Response) {
       },
     });
 
+    if (viewsCount) {
+      await prisma.viewsCount.create({
+        data: {
+          created,
+          sharing_code,
+        },
+      });
+    }
+
     await prisma.create.create({
       data: {
         created,
