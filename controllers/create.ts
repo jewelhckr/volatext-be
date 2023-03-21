@@ -26,6 +26,7 @@ export default async function create(req: Request, res: Response) {
 
     const encryptedString = cryptr.encrypt(text);
     const sharing_code = randomstring.generate(4).toLowerCase();
+    const accessToken = randomstring.generate(16).toLowerCase();
 
     const Text = await prisma.text.create({
       data: {
@@ -37,6 +38,7 @@ export default async function create(req: Request, res: Response) {
         isProtected,
         selfDestruct,
         viewsCount,
+        accessToken,
       },
     });
 
