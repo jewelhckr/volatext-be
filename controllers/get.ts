@@ -48,5 +48,6 @@ export default async function get(req: Request, res: Response) {
     sharing_code: text.sharing_code,
     diff,
     isProtected: text.isProtected,
+    viewsCount: text.viewsCount,
   });
 }
