@@ -34,6 +34,6 @@ model Text {
 
   model ViewsCount{
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  sharing_code String @unique
+  sharing_code String
   created DateTime
   }
