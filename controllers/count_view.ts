@@ -11,12 +11,16 @@ const count_view = async (req: Request, res: Response) => {
     },
   });
 
+  !codeExist && res.status(400).json({ message: "Invalid sharing code" });
+
   await prisma.viewsCount.create({
     data: {
       created: dayjs().toDate(),
       sharing_code: code as string,
     },
   });
+
+  res.status(201).json({ message: "Viewed" });
 };
 
 export default count_view;
