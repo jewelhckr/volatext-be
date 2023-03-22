@@ -48,6 +48,7 @@ export default async function get(req: Request, res: Response) {
       isProtected: false,
       viewsCount: text.viewsCount,
       views: await viewsCount(),
+      isOwner: true,
     });
   }
 
