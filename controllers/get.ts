@@ -38,7 +38,10 @@ export default async function get(req: Request, res: Response) {
   };
 
   const isOwner = async () => {
-    return text.accessToken === accessToken;
+    if (text.accessToken !== "") {
+      return text.accessToken === accessToken;
+    }
+    return;
   };
 
   if (await isOwner()) {
