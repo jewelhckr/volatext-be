@@ -6,6 +6,7 @@ import cryptr from "../utils/cryptr";
 export default async function get(req: Request, res: Response) {
   const code: string = req.params.code as string;
   const accessToken: string = req.query.accessToken as string;
+
   const text = await prisma.text.findUnique({
     where: {
       sharing_code: code,
@@ -53,6 +54,7 @@ export default async function get(req: Request, res: Response) {
   }
 
   if (text.isProtected) {
+    console.log("Protected");
     return res.status(200).json({
       text: text.text.replaceAll("a", "@"),
       sharing_code: text.sharing_code,
@@ -67,6 +69,8 @@ export default async function get(req: Request, res: Response) {
       where: { sharing_code: code },
     });
   }
+
+  console.log("Not protected");
 
   return res.status(200).json({
     text: cryptr.decrypt(text.text),
