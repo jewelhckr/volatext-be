@@ -45,8 +45,6 @@ export default async function get(req: Request, res: Response) {
   };
 
   if (await isOwner()) {
-    console.log("Owner");
-
     return res.status(200).json({
       text: cryptr.decrypt(text.text),
       sharing_code: text.sharing_code,
